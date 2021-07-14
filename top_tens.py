@@ -1,8 +1,12 @@
 from bs4 import BeautifulSoup
 import requests
+from flask import jsonify
+import pymongo
 
 def scrape():
-
+    conn = 'mongodb://localhost:27017'
+    client = pymongo.MongoClient(conn)
+    db = client.project_2
     url = 'https://www.boxofficemojo.com/year/2021/?grossesOption=calendarGrosses'
     top_tens = []
 
@@ -37,9 +41,10 @@ def scrape():
         except AttributeError as e:
             pass  
 
-            return top_tens
+            return (top_tens)
+    
+    db.top_ten.remove()
+    db.top_ten.insert(top_tens[0:10])
 
-    top_tens = top_tens[0:10]
-    print(top_tens)
 
-#scrape()
+scrape()
