@@ -1,3 +1,3 @@
-d3.json("/data").then(data=> console.log(data)).catch(error => console.log(error))
+d3.json("/ratings").then(data=> console.log(data)).catch(error => console.log(error))
 
 

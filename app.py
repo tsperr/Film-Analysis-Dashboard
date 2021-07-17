@@ -39,8 +39,10 @@ def home():
 @app.route('/ratings')
 def ratings_graphs():
     
-    
-    return render_template("templates/\html/RatingsRevenue.html")
+    movie_data=mongo.db.IMDBdata.find()
+    json_str = dumps(movie_data)
+    record2 = loads(json_str)
+    return render_template("html/RatingsRevenue.html", record2 = record2)
 
 
 if __name__ == '__main__':    
