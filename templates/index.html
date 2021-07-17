@@ -13,7 +13,7 @@
   <body>
     <!--Build navbar at top-->
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-    <a class="navbar-brand text-warning font-weight-bold" href= ../index.html>Movie Analysis</a>
+    <a class="navbar-brand text-warning font-weight-bold" href= index.html>Movie Analysis</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -25,9 +25,9 @@
                   Visualizations
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item text-dark" href="top10.html">Top 10</a>
-                  <a class="dropdown-item text-dark" href="RatingsRevenue.html">Financial Analysis</a>
-                  <a class="dropdown-item text-dark" href="InternationalProduction.html">International Production</a>
+                  <a class="dropdown-item text-dark" href="html/top10.html">Top 10</a>
+                  <a class="dropdown-item text-dark" href="html/RatingsRevenue.html">Financial Analysis</a>
+                  <a class="dropdown-item text-dark" href="html/InternationalProduction.html">International Production</a>
                   
                 </div>
               </li>
@@ -37,21 +37,30 @@
         </ul>
       </div>
     </nav>
-<!--Beginning of jumbotron-->
+
+    <img src = 'https://www.jahangeer.com/wp-content/uploads/2013/12/2400x780_Movie2013Banner_new-1024x307.jpg' class="center-block" style = "width: 1300px;height:400px">
+
     <div class="jumbotron">
-        <h1 class = "text-center">Production by Country</h1>
-        <p class="lead text-center">??What text do you all want here??.</p>
-        <p class="lead text-center">
-            <a class="btn btn-warning btn-lg" href="../index.html" role="button">Return Home</a>
-          </p>
-    </div>
+        <h4>Project Description</h4>
+        <p class="lead">We will be looking at past movie data to understand different patterns and trends among key variables. Using the Kaggle dataset on movies from 2000 to current, we will analyze the top 10 movies with the highest revenue internationally, identify any correlation between the budget of the movie and how much revenue it generated, look at the production countries to determine patterns and understand any trends based on the movie genres and the movie ratings. Finally, we will look at the current top 10 US movies based on IMDB charts.</p>
+        <hr class="my-4">
+        <h4>Data Sources</h4>
+        <p>
+            <a href="https://www.boxofficemojo.com/year/2021/?grossesOption=calendarGrosses">Box Office Mojo</a><br>
+            <a href="https://www.omdbapi.com/">OMDB API</a><br>
+            <a href="https://www.kaggle.com/stefanoleone992/imdb-extensive-dataset">Kaggle IMDB Dataset</a>
 
-<!--Placeholder for Map-->
-    <div class = " d-flex justify-content-center border border-secondary ml-2 mr-2">
-        <h4 class="text-center">Budget vs Revenue</h4>
-        <div id="budgvsrev" ></div>
-    </div>
 
+        </p>
+        <p class="lead">
+          <a class="btn btn-warning btn-lg" href="html/about.html" role="button">About the Team</a>
+        </p>
+      </div>
+  
+  <!--this is the start of visualizations side bar-->
+
+
+</div>
 </div>
 
 
@@ -60,5 +69,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
   </body>
 </html>
