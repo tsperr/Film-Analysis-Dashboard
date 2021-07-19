@@ -2,6 +2,7 @@ console.log("hello");
 d3.json("http://localhost:5000/data").then((data) => {
     console.log(data);
     console.log("test33");
+    //filter data for only USA - add of statement
     console.log(data[0].budget);
     var budget = [];
     var revenue = [];
@@ -9,7 +10,9 @@ d3.json("http://localhost:5000/data").then((data) => {
         item = data[i].budget
         budget.push(item)
         item2 = data[i].worlwide_gross_income
-        revenue.push(item2) };
+        revenue.push(item2);
+    
+    };
 
     console.log(budget);
     console.log(revenue);
