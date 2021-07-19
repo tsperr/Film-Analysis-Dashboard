@@ -45,6 +45,15 @@ def ratings_graphs():
     record2 = loads(json_str)
     return render_template("html/RatingsRevenue.html")
 
+@app.route('/topten')
+def scraper():
+
+    movie = mongo.db.IMDBdata
+    topten_data = top_tens.scrape()
+    movie.update({}, toptens, upsert=True)
+    return render_template("html/top10.html")
+
+
 @app.route('/budget')
 def budget():
     

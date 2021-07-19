@@ -2,6 +2,23 @@ d3.json("../../movie_data.json", callback)
     function callback(data) {
         // console.log(data)
         console.log(data[budget])
+        var budget = []
+        var revenue = []
+
+        Object.entries(data["budget"]).forEach(function([key,value]){
+            budget.push(value)
+        }
+        console.log(budget)
+
+    ///scatter plot budget vs income
+    var trace1 = {
+          x: budget,
+          y: revenue,
+          mode:"markers",
+          type: "scatter"
+        };
+    var data = [trace1];
+    Plotly.newPlot("budgvsrev",data);
     };
 
 
