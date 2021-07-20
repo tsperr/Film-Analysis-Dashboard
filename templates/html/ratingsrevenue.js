@@ -56,14 +56,14 @@ console.log(revenue_min);
 
       var layout = {
         
-        xaxis:{title: "Movie Budget (in Dollars)"},
-        yaxis: {title:"Movie Income (in Dollars)"},
-        xaxis: {
-            range: [ budget_min, budget_max]
-          },
-          yaxis: {
-            range: [revenue_min, revenue_max]
-          }
+        xaxis:{title: "Movie Budget (in Dollars)",range: [ budget_min, budget_max]},
+        yaxis: {title:"Movie Income (in Dollars)", range: [revenue_min, revenue_max]}
+        // xaxis: {
+        //     range: [ budget_min, budget_max]
+        //   },
+        //   yaxis: {
+        //     range: [revenue_min, revenue_max]
+        //   }
       };
 
       var data = [trace1];
@@ -90,9 +90,9 @@ console.log(movie_10)
 /// bar chart - top 10 revenue
 var data = [{
     type: 'bar',
-    x: top_10,
-    y: movie_10,
-    orientation: 'h'
+    x: movie_10,
+    y: top_10,
+    orientation: 'v'
   }];
   
   Plotly.newPlot('highgross', data);

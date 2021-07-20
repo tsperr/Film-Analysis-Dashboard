@@ -60,14 +60,14 @@ def budget():
     movie_data=mongo.db.IMDBdata.find()
     json_str = dumps(movie_data)
     record2 = loads(json_str)
-    print(record2)
+    ##print(record2)
     budget = []
     for x in range(len(record2)):
 
 
         item = record2[x]["budget"]
         budget.append(item)
-        print(budget)
+        ##print(budget)
     
     
 
