@@ -6,28 +6,45 @@ d3.json("http://localhost:5000/data").then((data) => {
     console.log(data[0].budget);
     var budget = [];
     var revenue = [];
+    var movies = []
     for (var i = 0; i<data.length; i++) {
         if ( data[i].country === "USA") {
-        item = data[i].budget
-        budget.push(item)
-        item2 = data[i].worlwide_gross_income
-        revenue.push(item2);};
+            item = data[i].budget
+            budget.push(item)
+            item2 = data[i].worlwide_gross_income
+            revenue.push(item2);
+            item3 = data[i].title
+            movies.push(item3);
+    
+    
+    };
     
     };
     
 
     console.log(budget);
     console.log(revenue);
+    console.log(movies);
+var test = []
+for (var i = 0; i<budget.length; i++) {
+    if (typeof budget[i] === "number") {
+        test2 = budget[i]
+        test.push(test2);
 
-    var budget_max = Math.max(Number(budget));
-    var budget_min = Math.min(Number(budget));
+    };
+}
+console.log(test)
 
-    var revenue_max = Math.max(revenue);
-    var revenue_min = Math.min(revenue);
-    console.log(budget_max,budget_min,revenue_min,revenue_max)
+var budget_min = Math.min.apply(null, budget);
+var budget_max = Math.max.apply(null, budget);
+var revenue_min = Math.min.apply(null, revenue);
+var revenue_max = Math.max.apply(null, revenue);
 
+console.log(budget_min);
+console.log(budget_max);
+console.log(revenue_max);
+console.log(revenue_min);
 
-    console.log()
 
     //scatter plot budget vs income
       var trace1 = {
@@ -37,114 +54,48 @@ d3.json("http://localhost:5000/data").then((data) => {
           type: "scatter"
       };
 
-    //   var layout = {
-    //     xaxis: {
-    //       range: [ 0.75, 5.25 ]
-    //     },
-    //     yaxis: {
-    //       range: [0, 8]
-    //     },
-    //     title:'Data Labels Hover'
-    //   };
+      var layout = {
+        
+        xaxis:{title: "Movie Budget (in Dollars)"},
+        yaxis: {title:"Movie Income (in Dollars)"},
+        xaxis: {
+            range: [ budget_min, budget_max]
+          },
+          yaxis: {
+            range: [revenue_min, revenue_max]
+          }
+      };
+
       var data = [trace1];
-      Plotly.newPlot("budgvsrev",data);
+      Plotly.newPlot("budgvsrev",data, layout);
+
+
+
+var top_10 = (revenue.sort(function (a, b) {  return b -a;  })).slice(0,10);
+
+console.log(top_10)
+var movie_10 = []
+
+for (var i = 0; i<top_10.length; i++) {
+    value = top_10[i]
+    console.log(value)
+    ind = revenue.indexOf(value)
+    console.log(ind)
+    movie = movies[ind]
+    movie_10.push(movie)
+};
+
+console.log(movie_10)
+
+/// bar chart - top 10 revenue
+var data = [{
+    type: 'bar',
+    x: top_10,
+    y: movie_10,
+    orientation: 'h'
+  }];
+  
+  Plotly.newPlot('highgross', data);
 
 
 });
-
-// callback(d3.json("http://localhost:5000/data"));
-//  function callback(data) {
-//      console.log(data);
-//      console.log("test23");
-//  }
-
-// d3.json("http://localhost:5000/data", callback)
-// function callback(data) {
-//     console.log(data)
-//     console,log("test") };
-
-// d3.json("../../movie_data.json", callback)
-//     function callback(data) {
-//         console.log(data)
-//         var budget = [];
-//         var revenue = [];
-
-//         for (var i = 0; i<data.length; i++) {
-//             item = data.budget.0[i];
-//             budget.push(item);
-//             item2 = data.worlwide_gross_income[i];
-//             revenue.push(item2)
-//         }
-//         console.log(budget)
-//     }
-
-
-    ////////////////////////////////////////
-// d3.json("../../movie_data.json").then((data) => {
-//     console.log(data);
-// });
-
-
-
-
-
-
-// d3.json("http://localhost:5000/data").then(data=> console.log(data)).catch(error => console.log(error))
-// function callback(data) {
-//     console.log(data);
-//     console.log("test")
-// };
-// function init() {
-// d3.json("http://localhost:5000/data", callback)
-
-
-
-// }
-// init()
-
-
-// function init() {
-
-//     d3.json("http://localhost:5000/data", callback) 
-//     function callback(data) {
-//         console.log(data) }; }
-
-
-// function init() {
-
-//     d3.json("http://localhost:5000/data", callback) 
-//     function callback(data) {
-//         console.log(data) };
-// //         var budget = [];
-// //         var revenue = [];
-
-// //         for (var i = 0; i<data.length; i++) {
-// //             item = data[i]["budget"]
-// //             budget.push(item)
-// //             item2 = data[i]["worlwide_gross_income"]
-// //             revenue.push(item2)
-// //         }
-// //     //     data.forEach(function(row) {
-// //     //       console.log(row)
-        
-// //     //     budget.push(row["budget"]);
-// //     //     console.log(budget)  
-        
-// //     //     revenue.push(row["worlwide_gross_income"]);
-// //     //   });
-// //       ///scatter plot budget vs income
-// //       var trace1 = {
-// //           x: budget,
-// //           y: revenue,
-// //           mode:"markers",
-// //           type: "scatter"
-// //       };
-// //       var data = [trace1];
-// //       Plotly.newPlot("budgvsrev",data);
-// //     }
-// // // }
-// init()
-
-
-
-
