@@ -18,7 +18,7 @@ def scrape():
     # results are returned as an iterable list
     results = soup.find_all('tr')
 
-
+    i = 1
     #loop to scrape and store results
     for result in results:
    
@@ -34,14 +34,14 @@ def scrape():
                 post = {
                     'title': title,
                     'totalGross': total_gross2,
-                    'releaseDate': release
+                    'releaseDate': release,
+                    'rank': i
                     }
                 
                 top_tens.append(post)
+                i = i+1
         except AttributeError as e:
             pass  
-
     db.top_ten.insert(top_tens[0:10])
-
 
 scrape()
