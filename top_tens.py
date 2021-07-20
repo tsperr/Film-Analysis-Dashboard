@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup
 import requests
-from flask import jsonify
 import pymongo
 
 def scrape():
@@ -9,7 +8,7 @@ def scrape():
     db = client.project_2
     url = 'https://www.boxofficemojo.com/year/2021/?grossesOption=calendarGrosses'
     top_tens = []
-
+    db.top_ten.remove()
     # Retrieve page with the requests module
     response = requests.get(url)
 
@@ -27,6 +26,7 @@ def scrape():
             
             title = result.find('a', class_='a-link-normal').text
             total_gross = result.find_all('td', class_='a-text-right mojo-field-type-money mojo-estimatable')
+            release = result.find('td', class_='a-text-left mojo-field-type-date a-nowrap').text
             
             if (title and total_gross):    
                 
@@ -34,16 +34,13 @@ def scrape():
                 post = {
                     'title': title,
                     'totalGross': total_gross2,
-                    
+                    'releaseDate': release
                     }
                 
                 top_tens.append(post)
         except AttributeError as e:
             pass  
 
-            return (top_tens)
-    
-    db.top_ten.remove()
     db.top_ten.insert(top_tens[0:10])
 
 
