@@ -7,6 +7,7 @@ from bson.json_util import loads, dumps
 from bson import ObjectId 
 import json
 from flask_cors import CORS
+import top_tens
 
 class JSONEncoder(json.JSONEncoder):
     def default(self, o):
@@ -36,42 +37,35 @@ def data():
 def home():
     return render_template('index.html')
 
-
-# @app.route('/ratings')
-# def ratings_graphs():
     
 #     movie_data=mongo.db.IMDBdata.find()
 #     json_str = dumps(movie_data)
 #     record2 = loads(json_str)
 #     return render_template("html/RatingsRevenue.html")
 
-@app.route('/topten')
-def scraper():
+# @app.route('/topten')
+# def scraper():
 
-    movie = mongo.db.IMDBdata
-    topten_data = top_tens.scrape()
-    movie.update({}, toptens, upsert=True)
-    return render_template("html/top10.html")
+#     movie = mongo.db.IMDBdata
+#     topten_data = top_tens.scrape()
+#     movie.update({}, toptens, upsert=True)
+#     return render_template("html/top10.html")
 
-
-# @app.route('/budget')
-# def budget():
+@app.route("/topten")
+def scrape1():
+    top_tens.scrape()
+    top_ten = mongo.db.top_ten.find()
+    return render_template("html/topten.html", top_ten=top_ten)
     
-#     movie_data=mongo.db.IMDBdata.find()
-#     json_str = dumps(movie_data)
-#     record2 = loads(json_str)
-#     ##print(record2)
-#     budget = []
-#     for x in range(len(record2)):
-
-
-#         item = record2[x]["budget"]
-#         budget.append(item)
-#         ##print(budget)
+@app.route("/top")
+def scrape2():
+    top_tens.scrape()
+    top_ten_data = mongo.db.top_ten.find()
+    json_str = dumps(top_ten_data)
+    record2 = loads(json_str)
+    print(record2)
+    return jsonify(record2)
     
-    
-
-#     return jsonify(budget)
 
 @app.route('/rate')
 def rate():
