@@ -1,5 +1,5 @@
 console.log("hello");
-d3.json("http://localhost:5000/data").then((data) => {
+d3.json("/data").then((data) => {
     console.log(data);
     console.log("test33");
     //filter data for only USA - add of statement
