@@ -29,7 +29,7 @@ def data():
     movie_data=mongo.db.IMDBdata.find()
     json_str = dumps(movie_data)
     record2 = loads(json_str)
-    print(record2)
+    ##print(record2)
     return jsonify(record2)
 
 @app.route('/')

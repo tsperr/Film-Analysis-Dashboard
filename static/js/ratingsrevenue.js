@@ -100,8 +100,41 @@ var data = [{
 
 });
 
-d3.json("ratings_data.json").then((data) => {
-    console.log(data);   });
+d3.csv("../../static/data/genre.csv").then((data) => {
+    console.log(data); 
+
+//pie charrt 
+    var genres = [];
+    var avg_ratings = []
+    for (var i = 1; i<data.length; i++) {
+           console.log(data[i].genre) 
+            item = data[i].genre
+            genres.push(item)
+            item2 = (data[i].Ratings)
+            avg_ratings.push(item2);
+    
+    
+    };
+
+console.log(genres)
+console.log(avg_ratings)
+
+var data = [{
+    type: "pie",
+    values: avg_ratings,
+    labels: genres,
+    textinfo: "label+value",
+    insidetextorientation: "radial"
+  }]
+  
+  var layout = [{
+    height: 700,
+    width: 700
+  }]
+  
+  Plotly.newPlot('ratsvsgenre', data, layout)
+
+});
 
 // candle stick chart- ratings by genre 
 
