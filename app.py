@@ -81,6 +81,9 @@ def rate():
 def map():
     return render_template("html/InternationalProduction.html")
 
+@app.route('/about')
+def about_page():
+    return render_template("html/about.html")
 
 if __name__ == '__main__':    
     app.run(debug=True)
