@@ -100,29 +100,31 @@ var data = [{
 
 });
 
-/// candle stick chart- ratings by genre 
+d3.json("ratings_data.json").then((data) => {
+    console.log(data);   });
+
+// candle stick chart- ratings by genre 
 
 // google.charts.load('current', {'packages':['corechart']});
 //       google.charts.setOnLoadCallback(drawChart);   
     
-// /// id= ratsvsgenre
+/// id= ratsvsgenre
 
 
-//     d3.json("ratings_data.csv").then((data) => {
-//     console.log(data);
-//     console.log("test33");
-//     console.log(data[2].Ratings);
-//       function drawChart() {
-//         var data = google.visualization.arrayToDataTable([
+    
+    // console.log("test33");
+    // console.log(data[2].Ratings);
+    //   function drawChart() {
+    //     var data = google.visualization.arrayToDataTable([
           
-//             ['data[1].genre', data[2].Ratings
+    //         ['data[1].genre', data[2].Ratings
          
-//           // Treat first row as data as well.
-//         ], true ;
+    //       // Treat first row as data as well.
+    //     ], true );
 
-//         var options = {
-//             legend:'none'
-//           };
-//           var chart = new google.visualization.CandlestickChart(document.getElementById('ratsvsgenre'));
-//           chart.draw(data, options);
-//         }})
+    //     var options = {
+    //         legend:'none'
+    //       };
+    //       var chart = new google.visualization.CandlestickChart(document.getElementById('ratsvsgenre'));
+    //       chart.draw(data, options);
+      
