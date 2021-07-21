@@ -21,7 +21,6 @@ d3.json("http://localhost:5000/top").then((data) => {
 
     var layout = [{
       xaxis:{
-      title: "Top Domestic Grossing Movies",
       automargin: true
       },
       yaxis: {
