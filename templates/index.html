@@ -12,22 +12,38 @@
 <body>
     <div class="container text-center">
       <h1 class="jumbotron">Movies</h1>
-      <div>
-        <!-- write a for loop that lists out your data and accesses the values using dot notation. -->
-          {% for item in top_ten %}
-          <div class="col-lg-4">
-              <div class="card" style="width: 20rem;">
-                  <div class="card-body">
-                    <h4 class="card-title">{{ item.title }}</h4>
-                    <h6 class="card-subtitle mb-2 text-muted">Domestic Gross: {{ item.totalGross }}</h6>
-                    <h7 class="card-subtitle mb-2 text-muted">Release Date: {{ item.releaseDate }}</h7>
-                  </div>
-                </div>
-            </div>
-            {% endfor %}
+    </div>
+    <div class='container'>
+      <div class= 'row'>
+      <div id='bar' class='col-lg'>
 
       </div>
+    <div class = "col-lg">
+      <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Rank</th>
+            <th scope="col">Title</th>
+            <th scope="col">Domestic Gross</th>
+            <th scope="col">Release Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in top_ten %}
+          <tr>
+            <th scope="row">{{item.rank}}</th>
+            <td>{{item.title}}</td>
+            <td>{{item.totalGross}}</td>
+            <td>{{item.releaseDate}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     </div>
-  </body>
-
+  </div>
+  </div>
+  <script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="static/js/t10.js"></script>
+</body>
 </html>
