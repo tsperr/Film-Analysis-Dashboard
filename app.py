@@ -37,13 +37,13 @@ def home():
     return render_template('index.html')
 
 
-@app.route('/ratings')
-def ratings_graphs():
+# @app.route('/ratings')
+# def ratings_graphs():
     
-    movie_data=mongo.db.IMDBdata.find()
-    json_str = dumps(movie_data)
-    record2 = loads(json_str)
-    return render_template("html/RatingsRevenue.html")
+#     movie_data=mongo.db.IMDBdata.find()
+#     json_str = dumps(movie_data)
+#     record2 = loads(json_str)
+#     return render_template("html/RatingsRevenue.html")
 
 @app.route('/topten')
 def scraper():
@@ -54,28 +54,32 @@ def scraper():
     return render_template("html/top10.html")
 
 
-@app.route('/budget')
-def budget():
+# @app.route('/budget')
+# def budget():
     
-    movie_data=mongo.db.IMDBdata.find()
-    json_str = dumps(movie_data)
-    record2 = loads(json_str)
-    ##print(record2)
-    budget = []
-    for x in range(len(record2)):
+#     movie_data=mongo.db.IMDBdata.find()
+#     json_str = dumps(movie_data)
+#     record2 = loads(json_str)
+#     ##print(record2)
+#     budget = []
+#     for x in range(len(record2)):
 
 
-        item = record2[x]["budget"]
-        budget.append(item)
-        ##print(budget)
+#         item = record2[x]["budget"]
+#         budget.append(item)
+#         ##print(budget)
     
     
 
-    return jsonify(budget)
+#     return jsonify(budget)
 
 @app.route('/rate')
 def rate():
     return render_template("html/RatingsRevenue.html")
+
+@app.route('/map')
+def map():
+    return render_template("html/InternationalProduction.html")
 
 
 if __name__ == '__main__':    
