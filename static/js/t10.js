@@ -19,19 +19,20 @@ d3.json("http://localhost:5000/top").then((data) => {
       orientation: 'v'
     }];
 
-    let layout = [{
-      title: "top ten",
+    let layout = {
+      title: "Top Ten Movies vs. Revenue", 
       xaxis:{
-        textposition = 'outside', 
-        cliponaxis = FALSE,
+      autotick: false,
+      ticks: 'outside',
+      ticklen: 7,
       automargin: true,
       margin: 10
-      },
-      yaxis: {
-          automargin: true,
-    },
-    }];
-    Plotly.newPlot('bar', data, layout);
+      }, 
+      yaxis: {  
+        automargin: true}
+      };
+      fig = layout=layout;
+    Plotly.newPlot('bar', data, fig);
    
     
 });
