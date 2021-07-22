@@ -19,14 +19,19 @@ d3.json("http://localhost:5000/top").then((data) => {
       orientation: 'v'
     }];
 
-    var layout = [{
+    let layout = [{
+      title: "top ten",
       xaxis:{
-      automargin: true
+        textposition = 'outside', 
+        cliponaxis = FALSE,
+      automargin: true,
+      margin: 10
       },
       yaxis: {
-          automargin: true
-        }
+          automargin: true,
+    },
     }];
     Plotly.newPlot('bar', data, layout);
-
+   
+    
 });
