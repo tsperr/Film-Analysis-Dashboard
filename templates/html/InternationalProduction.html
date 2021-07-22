@@ -58,7 +58,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>International Production</title>
-
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -69,6 +70,42 @@
 </head>
 
 <body>
+<!--Build navbar at top-->
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <a class="navbar-brand text-warning font-weight-bold" href= "/" >Movie Analysis</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-warning" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Visualizations
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item text-dark" href="/topten">Top 10</a>
+                <a class="dropdown-item text-dark" href="/rate">Financial Analysis</a>
+                <a class="dropdown-item text-dark" href="/map">International Production</a>
+                
+              </div>
+            </li>
+        <li class="nav-item active">
+          <a class="nav-link text-warning" href="/about">About <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+<!--Beginning of jumbotron-->
+<div class="jumbotron">
+  <h1 class = "text-center">Current Top Ten U.S. Movies</h1>
+  <p class="lead text-center">This graph is built using Leaflet and data from Kaggle IMDB dataset.</p>
+  <p class="lead text-center">
+      <a class="btn btn-warning btn-lg" href="/" role="button">Return Home</a>
+    </p>
+ 
+</div>
 
 <div id="map"></div>
 
