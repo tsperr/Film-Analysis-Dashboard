@@ -97,7 +97,6 @@ var data = [{
   
   Plotly.newPlot('highgross', data);
 
-
 });
 
 d3.csv("../../static/data/genre.csv").then((data) => {
